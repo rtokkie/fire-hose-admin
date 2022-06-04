@@ -10,7 +10,14 @@ import { FireDocumentInput } from './fire-document';
 
 const createLoader = <TData>(ref: CollectionReference<TData>) => {
   return new DataLoader<string, DocumentSnapshot<TData>>((ids) =>
-    Promise.all(ids.map((id) => ref.doc(id).get()))
+    Promise.all(
+      ids.map((id) =>
+        ref
+          .doc(id)
+          .get()
+          .then((snap) => (snap.exists ? snap : new Error('snap not found')))
+      )
+    )
   );
 };
 
