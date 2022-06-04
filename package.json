@@ -9,6 +9,7 @@
     "emu": "firebase emulators:start --project fire-hose-admin-test"
   },
   "dependencies": {
+    "dataloader": "^2.1.0",
     "firebase-admin": "^10.2.0"
   },
   "devDependencies": {
