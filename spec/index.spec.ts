@@ -51,8 +51,8 @@ class PostsCollectionGroup extends FireCollectionGroup<PostData, PostDoc> {
 // NOTE: Root Collections
 const db = getDb();
 const usersRef = db.collection('users');
-const usersCollection = new UsersCollection(usersRef);
 const postsGroupRef = db.collectionGroup('posts');
+const usersCollection = new UsersCollection(usersRef);
 const postsCollectionGroup = new PostsCollectionGroup(postsGroupRef);
 
 beforeEach(async () => {
